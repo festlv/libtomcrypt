@@ -4,7 +4,7 @@
 
 # Compiler and Linker Names
 ifndef PREFIX
-  PREFIX:=
+  PREFIX:= arm-none-eabi-
 endif
 
 ifeq ($(CC),cc)
@@ -23,7 +23,12 @@ endif
 
 
 # Compilation flags. Note the += does not write over the user's CFLAGS!
-CFLAGS += -I./testprof/ -I./src/headers/ -Wall -Wsign-compare -Wshadow -DLTC_SOURCE
+CFLAGS += -g -I./testprof/ -I./src/headers/ -Wall -Wsign-compare -Wshadow -DLTC_SOURCE \
+		  -fno-builtin -lnosys -Wl,-gc-sections -mthumb -mcpu=cortex-m4 \
+		  -mfloat-abi=hard -mfpu=fpv4-sp-d16 \
+		  -ffunction-sections -DARGTYPE=3
+
+LTC_SMALL:=1
 
 ifdef OLD_GCC
 CFLAGS += -W

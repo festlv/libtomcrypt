@@ -1,6 +1,9 @@
 #ifndef TOMCRYPT_CUSTOM_H_
 #define TOMCRYPT_CUSTOM_H_
 
+
+
+
 /* macros for various libc functions you can change for embedded targets */
 #ifndef XMALLOC
    #ifdef malloc
@@ -146,13 +149,13 @@
 /* #define LTC_TEST_EXT */
 
 /* Use small code where possible */
-/* #define LTC_SMALL_CODE */
+//#define LTC_SMALL_CODE
 
 /* clean the stack of functions which put private information on stack */
 /* #define LTC_CLEAN_STACK */
 
 /* disable all file related functions */
-/* #define LTC_NO_FILE */
+//#define LTC_NO_FILE
 
 /* disable all forms of ASM */
 /* #define LTC_NO_ASM */
@@ -550,6 +553,15 @@
 #endif
 
 
+#define LTC_NO_MATH
+#define LTC_NO_MODES
+#define LTC_NO_HASHES
+#define LTC_NO_MACS
+#define LTC_NO_PRNGS
+#define LTC_NO_PK
+#define LTC_NO_PKCS
+#define LTC_NO_MISC
+#define LTC_NO_FILE
 
 /* $Source$ */
 /* $Revision$ */
